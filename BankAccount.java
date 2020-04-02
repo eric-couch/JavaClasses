@@ -51,9 +51,16 @@ public class BankAccount {
         return this.Balance;
     }
 
+    public float Withdrawl (float amt) {
+        if (this.Balance > amt) {
+            this.Balance -= amt;
+        }
+        return this.Balance;
+    }
+
     public boolean Transfer(float amt, BankAccount toTransTo) {
         if (amt > 0) {
-            this.Balance -= amt;
+            this.Withdrawl(amt);
             toTransTo.Deposit(amt);
             return true;
         }
